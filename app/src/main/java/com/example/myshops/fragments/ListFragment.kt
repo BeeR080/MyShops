@@ -2,26 +2,16 @@ package com.example.myshops.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
-import android.widget.Toast
-import androidx.core.view.size
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myshops.ListOfPurchasesAdapter
+import com.example.myshops.Adapters.ListOfPurchasesAdapter
 import com.example.myshops.R
 import com.example.myshops.data.PurchaseViewModel
-import com.example.myshops.data.Purchases
 import com.example.myshops.databinding.FragmentListBinding
-import kotlinx.android.synthetic.main.fragment_list.*
-import kotlinx.android.synthetic.main.fragment_update.*
-import kotlinx.android.synthetic.main.purchases_list.*
 
 class ListFragment : Fragment() {
 
