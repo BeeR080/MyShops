@@ -103,6 +103,7 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
     companion object{
        const val VIEW_TYPE_CHEKED = 1
        const val VIEW_TYPE_NOTCHEKED = 0
+        const val MAX_POOL_SIZE = 15
     }
 
     }

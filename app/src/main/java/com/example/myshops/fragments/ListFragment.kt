@@ -34,6 +34,8 @@ class ListFragment : Fragment() {
         val totalcheked = binding.totalcheked
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.recycledViewPool.setMaxRecycledViews(ListOfPurchasesAdapter.VIEW_TYPE_CHEKED, ListOfPurchasesAdapter.MAX_POOL_SIZE)
+        recyclerView.recycledViewPool.setMaxRecycledViews(ListOfPurchasesAdapter.VIEW_TYPE_NOTCHEKED, ListOfPurchasesAdapter.MAX_POOL_SIZE)
 
 
 
