@@ -3,13 +3,10 @@ package com.example.myshops.Adapters
 
 import android.annotation.SuppressLint
 import android.app.Application
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myshops.R
@@ -17,7 +14,7 @@ import com.example.myshops.data.PurchaseViewModel
 import com.example.myshops.data.Purchases
 import com.example.myshops.fragments.ListFragmentDirections
 import kotlinx.android.synthetic.main.purchases_list.view.*
-
+import java.lang.RuntimeException
 
 
 class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewHodler>() {
@@ -28,7 +25,13 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHodler {
-        return MyViewHodler(LayoutInflater.from(parent.context).inflate(R.layout.purchases_list, parent , false))
+        val layout = when(viewType){
+            VIEW_TYPE_NOTCHEKED -> R.layout.purchases_list
+            VIEW_TYPE_CHEKED-> R.layout.purchases_list_cheked
+            else -> throw RuntimeException("Unknown view type: $viewType")
+        }
+         return MyViewHodler(LayoutInflater.from(parent.context).inflate(layout, parent , false))
+
 
     }
 
@@ -60,11 +63,6 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
                         curentItem.purchaseCount,
                         true)
                 mPurchaseViewModel.updatePurchase(updatePurchases)
-               holder.itemView.listLayout.setBackgroundColor(Color.parseColor("#D3D2D2"))
-                holder.itemView.addname_rc.setBackgroundColor(Color.parseColor("#A6A6A6"))
-                holder.itemView.adddesc_rc.setBackgroundColor(Color.parseColor("#A6A6A6"))
-                holder.itemView.addcount_rc.setBackgroundColor(Color.parseColor("#A6A6A6"))
-                holder.itemView.addimage_rc.setColorFilter(Color.parseColor("#A6A6A6"))
 
             } else {
                 val updatePurchases = Purchases(
@@ -74,11 +72,8 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
                         curentItem.purchaseCount,
                         false)
                 mPurchaseViewModel.updatePurchase(updatePurchases)
-                holder.itemView.listLayout.setBackgroundColor(Color.parseColor("#FFFFFFFF"))
-                holder.itemView.adddesc_rc.setBackgroundResource(R.drawable.textview_border)
-                holder.itemView.addname_rc.setBackgroundResource(R.drawable.textview_border)
-                holder.itemView.addcount_rc.setBackgroundResource(R.drawable.textview_border)
-                holder.itemView.addimage_rc.setColorFilter((Color.parseColor("#F4511E")))
+
+
 
             }
         }
@@ -87,7 +82,13 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
     }
 
     override fun getItemViewType(position: Int): Int {
-        return position
+        val item = purchaseList[position]
+        return if (item.checkbox){
+        VIEW_TYPE_CHEKED
+        }else{
+        VIEW_TYPE_NOTCHEKED
+        }
+        return super.getItemViewType(position)
     }
 
 
@@ -99,8 +100,9 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
         notifyDataSetChanged()
 
     }
-        fun getItemCounts():Int {
-         return purchaseList.size
+    companion object{
+       const val VIEW_TYPE_CHEKED = 1
+       const val VIEW_TYPE_NOTCHEKED = 0
     }
 
     }

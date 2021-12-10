@@ -12,6 +12,7 @@ import com.example.myshops.Adapters.ListOfPurchasesAdapter
 import com.example.myshops.R
 import com.example.myshops.data.PurchaseViewModel
 import com.example.myshops.databinding.FragmentListBinding
+import kotlinx.android.synthetic.main.purchases_list.*
 
 class ListFragment : Fragment() {
 
@@ -38,14 +39,14 @@ class ListFragment : Fragment() {
 
         //PurchasesViewModel
         mPurchasesViewModel = ViewModelProvider(this).get(PurchaseViewModel::class.java)
-        mPurchasesViewModel.readAllData.observe(viewLifecycleOwner, Observer { purchases ->
+        mPurchasesViewModel.readAllData.observe(viewLifecycleOwner, Observer {  purchases ->
             adapter.setData(purchases)
-            //total.text ="Товаров(куплено/всего):"+ " " + adapter.getItemCounts().toString()
-             total.text = adapter.getItemCounts().toString()
+             total.text = purchases.size.toString()
 
         })
-        mPurchasesViewModel.readCheked.observe(viewLifecycleOwner, Observer { checkBox->
-            totalcheked.text = "Товаров(куплено/всего):"+ checkBox.size+ "/" + total.text
+        mPurchasesViewModel.readCheked.observe(viewLifecycleOwner, Observer { purchases ->
+            totalcheked.text = "Товаров(куплено/всего):"+ purchases.size+ "/" + total.text
+
         })
 
 
