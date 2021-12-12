@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/MyShops"
+    <item
+        android:id="@+id/MyShops"
         android:icon="@drawable/ic_myshops"
         android:title="Мои покупки"
         />
-
-
-
+    <item
+        android:id="@+id/JointShops"
+        android:icon="@drawable/ic_jointshopping"
+        android:title="Совместные покупки"
+        />
 </menu>

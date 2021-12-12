@@ -1,7 +1,7 @@
 package com.example.myshops.data
 
 
-import android.widget.CheckBox
+
 import androidx.lifecycle.LiveData
 
 class PurchaseRepository(private val purchasesDao: PurchasesDao) {
@@ -22,7 +22,8 @@ class PurchaseRepository(private val purchasesDao: PurchasesDao) {
     }
 
     suspend fun deleteAllPurchases(){
-        purchasesDao.deleteAllPurchases()
+         purchasesDao.deleteAllPurchases()
+
     }
 
 

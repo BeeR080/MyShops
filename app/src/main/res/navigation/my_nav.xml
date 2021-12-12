@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_jointShopsFragment"
+            app:destination="@id/jointShopsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -37,5 +40,14 @@
         <argument
             android:name="currentPurchases"
             app:argType="com.example.myshops.data.Purchases" />
+    </fragment>
+    <fragment
+        android:id="@+id/jointShopsFragment"
+        android:name="com.example.myshops.fragments.JointShopsFragment"
+        android:label="fragment_joint_shops"
+        tools:layout="@layout/fragment_joint_shops" >
+        <action
+            android:id="@+id/action_jointShopsFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
 </navigation>

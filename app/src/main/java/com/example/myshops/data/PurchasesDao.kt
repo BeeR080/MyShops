@@ -1,13 +1,10 @@
 package com.example.myshops.data
 
-import android.os.FileObserver.DELETE
-import android.widget.CheckBox
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface PurchasesDao {
-
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addPurchases(purchases: Purchases)

@@ -18,7 +18,7 @@ import java.lang.RuntimeException
 
 
 class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewHodler>() {
-    private var purchaseList = emptyList<Purchases>()
+     var purchaseList = emptyList<Purchases>()
 
     class MyViewHodler(itemView: View):RecyclerView.ViewHolder(itemView) {
 
@@ -30,7 +30,10 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
             VIEW_TYPE_CHEKED-> R.layout.purchases_list_cheked
             else -> throw RuntimeException("Unknown view type: $viewType")
         }
-         return MyViewHodler(LayoutInflater.from(parent.context).inflate(layout, parent , false))
+         return MyViewHodler(LayoutInflater.from(parent.context)
+             .inflate(layout,
+                 parent ,
+                 false))
 
 
     }
@@ -100,6 +103,8 @@ class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewH
         notifyDataSetChanged()
 
     }
+
+
     companion object{
        const val VIEW_TYPE_CHEKED = 1
        const val VIEW_TYPE_NOTCHEKED = 0

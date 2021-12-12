@@ -3,7 +3,6 @@ package com.example.myshops.fragments
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.*
-import android.widget.CheckBox
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +13,7 @@ import com.example.myshops.data.PurchaseViewModel
 import com.example.myshops.data.Purchases
 import com.example.myshops.databinding.FragmentUpdateBinding
 import kotlinx.android.synthetic.main.fragment_update.*
-import kotlinx.android.synthetic.main.fragment_update.textdesc
+
 
 
 class UpdateFragment : Fragment() {
