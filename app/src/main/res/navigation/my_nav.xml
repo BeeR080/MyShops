@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.myshops.fragments.ListFragment"
+        android:name="com.example.myshops.view.fragments.ListFragment"
         android:label="Список покупок"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.myshops.fragments.addFragment"
+        android:name="com.example.myshops.view.fragments.addFragment"
         android:label="Добавление покупок"
         tools:layout="@layout/fragment_add" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.myshops.fragments.UpdateFragment"
+        android:name="com.example.myshops.view.fragments.UpdateFragment"
         android:label="Изменение покупок"
         tools:layout="@layout/fragment_update" >
         <action
@@ -43,9 +43,9 @@
     </fragment>
     <fragment
         android:id="@+id/jointShopsFragment"
-        android:name="com.example.myshops.fragments.JointShopsFragment"
-        android:label="fragment_joint_shops"
-        tools:layout="@layout/fragment_joint_shops" >
+        android:name="com.example.myshops.view.fragments.JointShopsFragment"
+        android:label="Совместные покупки"
+        tools:layout="@layout/fragment_joint_shops">
         <action
             android:id="@+id/action_jointShopsFragment_to_listFragment"
             app:destination="@id/listFragment" />

@@ -8,11 +8,11 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="5dp"
-    android:layout_marginRight="6dp"
+    android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp"
-    android:defaultFocusHighlightEnabled="false"
     android:orientation="horizontal"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="20dp"
+    >
 
     <TextView
         android:id="@+id/addname_rc"
@@ -50,7 +50,6 @@
         android:layout_marginLeft="35dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="10dp"
-
         android:background="@drawable/textview_border"
         android:text="count"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +64,8 @@
         android:layout_height="80dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        />
 
     <CheckBox
         android:id="@+id/checkBox"

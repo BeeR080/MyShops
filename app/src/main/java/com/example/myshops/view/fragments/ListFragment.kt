@@ -1,4 +1,4 @@
-package com.example.myshops.fragments
+package com.example.myshops.view.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -27,6 +27,13 @@ class ListFragment : Fragment() {
     ): View? {
 
         binding = FragmentListBinding.inflate(inflater)
+        binding.bottomNavMenu.selectedItemId = R.id.MyShops
+       binding.bottomNavMenu.setOnNavigationItemSelectedListener {
+           when(it.itemId){
+               R.id.JointShops ->findNavController().navigate(R.id.action_listFragment_to_jointShopsFragment)
+           }
+           true
+       }
 
 
         // RecyclerView

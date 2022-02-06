@@ -1,4 +1,4 @@
-package com.example.myshops
+package com.example.myshops.view
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.myshops.R
 import com.example.myshops.databinding.ActivityMainBinding
 
 
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+
         //Добавление стрелки Назад на баре
         setupActionBarWithNavController(findNavController(R.id.fragment))
 
@@ -30,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragment)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+
 
 
 

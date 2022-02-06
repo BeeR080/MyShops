@@ -4,109 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.addFragment">
+    tools:context=".view.fragments.addFragment">
 
-    <ImageView
-        android:id="@+id/plusbtn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="32dp"
-        android:background="#FF5722"
-        android:src="@drawable/ic_plus"
-        app:layout_constraintBottom_toTopOf="@+id/textdesc"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addname" />
-
-    <ImageView
-        android:id="@+id/minusbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="32dp"
-        android:background="#FF5722"
-        android:src="@drawable/ic_minus"
-        app:layout_constraintBottom_toTopOf="@+id/textdesc"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/updatecount"
-        android:layout_width="40dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginBottom="60dp"
-        android:background="#0B0B0B"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical"
         android:gravity="center"
-        android:text="0"
-        android:textColor="#FAF7F7"
-        app:layout_constraintBottom_toTopOf="@+id/adddesc"
-        app:layout_constraintEnd_toStartOf="@+id/minusbtn"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toEndOf="@+id/plusbtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/updatename"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filledTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border"
+            android:hint="Имя">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/updatename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#0B0B0B"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filledTextField1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border"
+            android:layout_marginTop="8dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/updatedesc"
+                android:layout_width="170dp"
+                android:layout_height="77dp"
+                android:width="23dp"
+                android:background="@color/grey"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="Описание"
+                android:inputType="textMultiLine|textPersonName"
+                android:isScrollContainer="true"
+                android:outlineProvider="background"
+                android:singleLine="false"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textColorHint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Имя"
-        android:inputType="textPersonName"
-        android:textColor="#0B0B0B"
-        app:layout_constraintBottom_toTopOf="@+id/textdesc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/updateimage"
-        android:layout_width="118dp"
-        android:layout_height="94dp"
-        android:layout_marginBottom="208dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
-
-    <TextView
-        android:id="@+id/textdesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Описание:"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/updatedesc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.348"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/updatedesc"
-        android:layout_width="171dp"
-        android:layout_height="77dp"
-        android:layout_marginBottom="424dp"
-        android:width="23dp"
-        android:background="@color/grey"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:gravity="top|left"
-        android:inputType="textMultiLine|textPersonName"
-        android:isScrollContainer="true"
-        android:outlineProvider="background"
-        android:singleLine="false"
-        android:textAlignment="viewStart"
-        android:textColor="#000000"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+        <ImageView
+            android:id="@+id/plusbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+
+            android:background="#FF5722"
+            android:src="@drawable/ic_plus"
+            app:layout_constraintBottom_toTopOf="@+id/textdesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addname"
+            app:layout_constraintVertical_bias="0.594" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/updatecount"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+
+            android:background="#0B0B0B"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#FAF7F7"
+            app:layout_constraintBottom_toTopOf="@+id/adddesc"
+            app:layout_constraintEnd_toStartOf="@+id/minusbtn"
+            app:layout_constraintStart_toEndOf="@+id/plusbtn"
+            app:layout_constraintTop_toBottomOf="@+id/addname" />
+
+        <ImageView
+            android:id="@+id/minusbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="#FF5722"
+            android:src="@drawable/ic_minus"
+            app:layout_constraintBottom_toTopOf="@+id/textdesc"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

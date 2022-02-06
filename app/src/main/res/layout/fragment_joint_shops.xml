@@ -5,18 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.JointShopsFragment">
+    tools:context=".view.fragments.JointShopsFragment">
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="18dp"
+        android:backgroundTint="@color/teal_700"
+        android:src="@drawable/ic_addpurchases"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_menu_jointshops"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylcer_jointshops"
         android:layout_width="match_parent"
-        android:layout_height="628dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_height="640dp"
+        android:orientation="horizontal" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_menu_jointshops"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         app:backgroundTint="#FF5722"
@@ -24,9 +35,11 @@
         app:itemTextColor="#F8F5F5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu"
-        android:id="@+id/bottom_nav_menu_jointshops"
-        />
+
+        app:layout_constraintTop_toBottomOf="@+id/recylcer_jointshops"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

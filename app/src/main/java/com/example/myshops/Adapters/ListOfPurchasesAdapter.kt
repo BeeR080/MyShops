@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myshops.R
 import com.example.myshops.data.PurchaseViewModel
 import com.example.myshops.data.Purchases
-import com.example.myshops.fragments.ListFragmentDirections
+
+import com.example.myshops.view.fragments.ListFragmentDirections
 import kotlinx.android.synthetic.main.purchases_list.view.*
 import java.lang.RuntimeException
 

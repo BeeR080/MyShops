@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/jointPurchasesList"
+    android:layout_width="170dp"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="18dp"
+    android:layout_marginEnd="3dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:orientation="horizontal">
+
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/checkBox_jointpurchases"/>
+
+        <ImageView
+            android:id="@+id/img_jointshops_image"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="34dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_jointshops_name"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:text="Name"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Description"
+        android:id="@+id/tv_jointshops_description"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="140dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_jointshops_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="55dp"
+        android:clickable="false"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        tools:text="x12"
+        app:layout_constraintStart_toEndOf="@+id/tv_jointshops_name"
+        />
+
+
+
+</androidx.cardview.widget.CardView>

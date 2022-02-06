@@ -1,4 +1,4 @@
-package com.example.myshops.fragments
+package com.example.myshops.view.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
