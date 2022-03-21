@@ -21,6 +21,7 @@ import java.lang.RuntimeException
 class ListOfPurchasesAdapter:RecyclerView.Adapter<ListOfPurchasesAdapter.MyViewHodler>() {
      var purchaseList = emptyList<Purchases>()
 
+
     class MyViewHodler(itemView: View):RecyclerView.ViewHolder(itemView) {
 
     }

@@ -30,7 +30,8 @@ class ListFragment : Fragment() {
         binding.bottomNavMenu.selectedItemId = R.id.MyShops
        binding.bottomNavMenu.setOnNavigationItemSelectedListener {
            when(it.itemId){
-               R.id.JointShops ->findNavController().navigate(R.id.action_listFragment_to_jointShopsFragment)
+               R.id.JointShops ->findNavController()
+                   .navigate(R.id.action_listFragment_to_jointShopsFragment)
            }
            true
        }
