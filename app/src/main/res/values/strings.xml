@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="line"> Not crossed <strike> crossed </strike> </string>
+    <string name="Ok">Добавить</string>
+    <string name="Cancel">Отмена</string>
+    <string name="order_confirmation">Добавление покупки</string>
 </resources>

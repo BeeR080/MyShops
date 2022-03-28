@@ -23,7 +23,7 @@ init{
 }
 
 
-    suspend fun addDataToDB(purchases: JointPurchases){
+ fun addDataToDB(purchases: JointPurchases){
 viewModelScope.launch(Dispatchers.IO) {
     repository.addPurchases(purchases)
 }

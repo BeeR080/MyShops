@@ -49,5 +49,17 @@
         <action
             android:id="@+id/action_jointShopsFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_jointShopsFragment_to_jointShopsDialogFragment"
+            app:destination="@id/jointShopsDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jointShopsDialogFragment"
+        android:name="com.example.myshops.view.fragments.JointShopsDialogFragment"
+        android:label="Добавить совместную покупку"
+        tools:layout="@layout/fragment_joint_shops_dialog">
+        <action
+            android:id="@+id/action_jointShopsDialogFragment_to_jointShopsFragment"
+            app:destination="@id/jointShopsFragment" />
     </fragment>
 </navigation>

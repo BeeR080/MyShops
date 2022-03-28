@@ -1,15 +1,9 @@
 package com.example.myshops.view.fragments
-
-
-
-
 import android.os.Bundle
 import android.text.TextUtils
-
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
-
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.myshops.R
@@ -84,8 +78,6 @@ class addFragment : Fragment() {
     // Верхний бар
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.action_barmune_add, menu)
-
-
         super.onCreateOptionsMenu(menu, inflater)
     }
     // Верхний бар, нажатие на эелменты

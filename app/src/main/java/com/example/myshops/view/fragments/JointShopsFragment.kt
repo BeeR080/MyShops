@@ -1,10 +1,8 @@
 package com.example.myshops.view.fragments
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -26,6 +24,8 @@ class JointShopsFragment() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         binding = FragmentJointShopsBinding.inflate(inflater)
 
 
@@ -49,11 +49,15 @@ class JointShopsFragment() : Fragment() {
         })
 
 binding.button2.setOnClickListener {
+    findNavController().navigate(R.id.action_jointShopsFragment_to_jointShopsDialogFragment)
+   // jointPurchasesViewModel.addDataToDB()
 }
 
         return binding.root
 
     }
+
+
 
 
 

@@ -53,6 +53,7 @@ class ListFragment : Fragment() {
             .setMaxRecycledViews(ListOfPurchasesAdapter
                 .VIEW_TYPE_NOTCHEKED,
             ListOfPurchasesAdapter.MAX_POOL_SIZE)
+
         // Удаление по свайпу
         val callback = object : ItemTouchHelper.SimpleCallback(0,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
