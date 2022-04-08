@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.fragments.purchases.addFragment">
+    android:layout_height="wrap_content"
+    tools:context=".view.fragments.jointpurchases.JointShopsEditFragment">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/dialog_edit_linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
@@ -19,15 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextField"
+            android:id="@+id/dialog_edit_filledTextField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/textview_border"
             android:hint="Имя">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/addname"
-
+                android:id="@+id/dialog_edit_addname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -43,7 +43,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextField1"
+            android:id="@+id/dialog_edit_filledTextField1"
             android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/adddesc"
+                android:id="@+id/dialog_edit_adddesc"
                 android:layout_width="171dp"
                 android:layout_height="77dp"
                 android:width="23dp"
@@ -83,22 +83,17 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/dialog_edit_linearLayout">
 
         <ImageView
-            android:id="@+id/plusbtn"
+            android:id="@+id/dialog_edit_plusbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity=""
             android:background="#FF5722"
-            android:src="@drawable/ic_plus"
-            app:layout_constraintBottom_toTopOf="@+id/textdesc"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addname"
-            app:layout_constraintVertical_bias="0.594" />
+            android:src="@drawable/ic_plus" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/addcount"
+            android:id="@+id/dialog_edit_addcount"
             android:layout_width="40dp"
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
@@ -108,20 +103,21 @@
             android:gravity="center"
             android:text="0"
             android:textColor="#FAF7F7"
-            app:layout_constraintBottom_toTopOf="@+id/adddesc"
-            app:layout_constraintEnd_toStartOf="@+id/minusbtn"
-            app:layout_constraintStart_toEndOf="@+id/plusbtn"
-            app:layout_constraintTop_toBottomOf="@+id/addname" />
+            app:layout_constraintBottom_toTopOf="@+id/dialog_edit_adddesc"
+            app:layout_constraintEnd_toStartOf="@+id/dialog_edit_minusbtn"
+            app:layout_constraintStart_toEndOf="@+id/dialog_edit_plusbtn"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_edit_addname" />
 
         <ImageView
-            android:id="@+id/minusbtn"
+            android:id="@+id/dialog_edit_minusbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:background="#FF5722"
             android:src="@drawable/ic_minus"
-            app:layout_constraintBottom_toTopOf="@+id/textdesc"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

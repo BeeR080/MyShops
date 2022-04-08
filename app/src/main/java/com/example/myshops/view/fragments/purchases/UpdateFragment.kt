@@ -1,4 +1,4 @@
-package com.example.myshops.view.fragments
+package com.example.myshops.view.fragments.purchases
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.myshops.R
-import com.example.myshops.data.PurchaseViewModel
+import com.example.myshops.data.purchases.PurchaseViewModel
 import com.example.myshops.data.Purchases
 import com.example.myshops.databinding.FragmentUpdateBinding
 import kotlinx.android.synthetic.main.fragment_update.*

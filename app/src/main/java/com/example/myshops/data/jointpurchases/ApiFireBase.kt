@@ -1,4 +1,4 @@
-package com.example.myshops.data
+package com.example.myshops.data.jointpurchases
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -11,26 +11,23 @@ import com.google.firebase.ktx.Firebase
 
  class ApiFireBase {
     val dataBase = Firebase.database
+     val dbRef = dataBase.getReference("purchases")
      var purchasesList = ArrayList<JointPurchases>()
-      var _purchasesList: MutableLiveData<ArrayList<JointPurchases>> = MutableLiveData()
+      var _purchasesList: MutableLiveData<List<JointPurchases>> = MutableLiveData()
 
 
      fun setDataToFB(purchases: JointPurchases){
-        val dbRef = dataBase.getReference("purchases")
         dbRef.child(purchases.name).setValue(purchases)
-        Log.d("Firebase","Data send")
     }
 
-    fun getDataFromFB(): LiveData<ArrayList<JointPurchases>> {
-        val dbRef = dataBase.getReference("purchases")
+     fun getDataFromFB(): LiveData<List<JointPurchases>> {
+
          dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(datasnapshot: DataSnapshot in snapshot.children){
                     val purchase = datasnapshot.getValue(JointPurchases::class.java)
                     purchasesList.add(purchase!!)
                     _purchasesList.value = purchasesList
-
-
                     Log.d("Firebase", "See data on FB $purchasesList")
                 }
             }
@@ -40,9 +37,38 @@ import com.google.firebase.ktx.Firebase
         })
 
         return _purchasesList
-
-
     }
 
+     fun deleteDataFromFB(purchases: JointPurchases){
+         dbRef.addListenerForSingleValueEvent(object  : ValueEventListener{
+             override fun onDataChange(snapshot: DataSnapshot) {
+                 for(datasnapshot: DataSnapshot in snapshot.children){
+                     dbRef.child(purchases.name).removeValue()
+
+                 }
+             }
+
+             override fun onCancelled(error: DatabaseError) {
+             }
+         })
+     }
+
+     fun editDataFromFB(purchases: JointPurchases){
+         dbRef.addListenerForSingleValueEvent(object : ValueEventListener{
+             override fun onDataChange(snapshot: DataSnapshot) {
+                 for(datasnapshot: DataSnapshot in snapshot.children){
+                     dbRef.child(purchases.name).setValue(purchases)
+
+
+                 }
+             }
+
+             override fun onCancelled(error: DatabaseError) {
+
+             }
+
+
+         })
+     }
 }
 

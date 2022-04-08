@@ -1,4 +1,4 @@
-package com.example.myshops.view.fragments
+package com.example.myshops.view.fragments.purchases
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myshops.Adapters.ListOfPurchasesAdapter
 import com.example.myshops.R
-import com.example.myshops.data.PurchaseViewModel
+import com.example.myshops.data.purchases.PurchaseViewModel
 import com.example.myshops.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
@@ -82,11 +82,6 @@ class ListFragment : Fragment() {
              total.text = purchases.size.toString()
 
         })
-        mPurchasesViewModel.readCheked.observe(viewLifecycleOwner, Observer { purchases ->
-            totalcheked.text = "Товаров(куплено/всего):"+ purchases.size+ "/" + total.text
-
-        })
-
 
         binding.addbutton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)

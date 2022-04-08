@@ -1,19 +1,18 @@
-package com.example.myshops.view.fragments
+package com.example.myshops.view.fragments.jointpurchases
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.myshops.R
-import com.example.myshops.data.JointPurchases
-import com.example.myshops.data.JointPurchasesViewModel
-import com.example.myshops.data.PurchaseViewModel
-import com.example.myshops.data.Purchases
+import com.example.myshops.data.jointpurchases.JointPurchases
+import com.example.myshops.data.jointpurchases.JointPurchasesViewModel
 import com.example.myshops.databinding.FragmentJointShopsDialogBinding
+
 import kotlinx.android.synthetic.main.fragment_joint_shops_dialog.*
 
 
-class JointShopsDialogFragment : Fragment() {
+class JointShopsAddFragment : Fragment() {
 
     lateinit var binding: FragmentJointShopsDialogBinding
     lateinit var jointPurchasesViewModel: JointPurchasesViewModel
@@ -72,7 +71,7 @@ jointPurchasesViewModel = ViewModelProvider(this).get(JointPurchasesViewModel::c
         val name = binding.dialogAddname.text.toString()
 
         val purchases = JointPurchases(name,desc,count,false)
-        //Добавляем данные в ДБ
+        //Добавляем данные в FB
         jointPurchasesViewModel.addDataToDB(purchases)
         findNavController().navigate(R.id.action_jointShopsDialogFragment_to_jointShopsFragment)
     }

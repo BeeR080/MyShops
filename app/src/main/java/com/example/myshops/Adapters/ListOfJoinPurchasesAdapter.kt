@@ -3,9 +3,12 @@ package com.example.myshops.Adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myshops.R
-import com.example.myshops.data.JointPurchases
+import com.example.myshops.data.jointpurchases.JointPurchases
+import com.example.myshops.view.fragments.jointpurchases.JointShopsFragmentDirections
+import com.example.myshops.view.fragments.purchases.ListFragmentDirections
 import kotlinx.android.synthetic.main.jointpurchases_list.view.*
 
 class ListOfJoinPurchasesAdapter: RecyclerView.Adapter<ListOfJoinPurchasesAdapter.JointListViewHolder>() {
@@ -36,6 +39,18 @@ class ListOfJoinPurchasesAdapter: RecyclerView.Adapter<ListOfJoinPurchasesAdapte
         holder.itemView.img_jointshops_image.setImageResource(R.drawable.ic_marketshops)
 
 
+        holder.itemView.setOnClickListener {
+            val actions = JointShopsFragmentDirections
+                .actionJointShopsFragmentToJointShopsEditFragment(currentItem)
+            holder.itemView.findNavController().navigate(actions)
+        }
+    }
+
+
+
+    override fun getItemViewType(position: Int): Int {
+        purchases[position]
+        return super.getItemViewType(position)
     }
 
     override fun getItemCount(): Int {
@@ -47,6 +62,8 @@ class ListOfJoinPurchasesAdapter: RecyclerView.Adapter<ListOfJoinPurchasesAdapte
         this.purchases = purchases
         notifyDataSetChanged()
     }
+
+
 
 
 

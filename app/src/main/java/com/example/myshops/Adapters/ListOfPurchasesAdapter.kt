@@ -1,6 +1,4 @@
 package com.example.myshops.Adapters
-
-
 import android.annotation.SuppressLint
 import android.app.Application
 import android.view.LayoutInflater
@@ -10,10 +8,9 @@ import android.widget.CheckBox
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myshops.R
-import com.example.myshops.data.PurchaseViewModel
+import com.example.myshops.data.purchases.PurchaseViewModel
 import com.example.myshops.data.Purchases
-
-import com.example.myshops.view.fragments.ListFragmentDirections
+import com.example.myshops.view.fragments.purchases.ListFragmentDirections
 import kotlinx.android.synthetic.main.purchases_list.view.*
 import java.lang.RuntimeException
 

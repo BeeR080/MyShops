@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.myshops.view.fragments.ListFragment"
+        android:name="com.example.myshops.view.fragments.purchases.ListFragment"
         android:label="Список покупок"
         tools:layout="@layout/fragment_list">
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.myshops.view.fragments.addFragment"
+        android:name="com.example.myshops.view.fragments.purchases.addFragment"
         android:label="Добавление покупок"
         tools:layout="@layout/fragment_add" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.myshops.view.fragments.UpdateFragment"
+        android:name="com.example.myshops.view.fragments.purchases.UpdateFragment"
         android:label="Изменение покупок"
         tools:layout="@layout/fragment_update" >
         <action
@@ -43,23 +43,34 @@
     </fragment>
     <fragment
         android:id="@+id/jointShopsFragment"
-        android:name="com.example.myshops.view.fragments.JointShopsFragment"
+        android:name="com.example.myshops.view.fragments.jointpurchases.JointShopsFragment"
         android:label="Совместные покупки"
         tools:layout="@layout/fragment_joint_shops">
         <action
-            android:id="@+id/action_jointShopsFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-        <action
             android:id="@+id/action_jointShopsFragment_to_jointShopsDialogFragment"
             app:destination="@id/jointShopsDialogFragment" />
+        <action
+            android:id="@+id/action_jointShopsFragment_to_jointShopsEditFragment"
+            app:destination="@id/jointShopsEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/jointShopsDialogFragment"
-        android:name="com.example.myshops.view.fragments.JointShopsDialogFragment"
+        android:name="com.example.myshops.view.fragments.jointpurchases.JointShopsAddFragment"
         android:label="Добавить совместную покупку"
         tools:layout="@layout/fragment_joint_shops_dialog">
         <action
             android:id="@+id/action_jointShopsDialogFragment_to_jointShopsFragment"
             app:destination="@id/jointShopsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jointShopsEditFragment"
+        android:name="com.example.myshops.view.fragments.jointpurchases.JointShopsEditFragment"
+        android:label="Редактирование совместной покупки">
+        <action
+            android:id="@+id/action_jointShopsEditFragment_to_jointShopsFragment"
+            app:destination="@id/jointShopsFragment" />
+        <argument
+            android:name="currentPurchases"
+            app:argType="com.example.myshops.data.jointpurchases.JointPurchases" />
     </fragment>
 </navigation>

@@ -1,7 +1,8 @@
-package com.example.myshops.data
+package com.example.myshops.data.purchases
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.myshops.data.Purchases
 
 @Dao
 interface PurchasesDao {
@@ -17,10 +18,6 @@ interface PurchasesDao {
 
     @Query("DELETE FROM my_purchases")
     suspend fun deleteAllPurchases()
-
-    @Query("SELECT * FROM my_purchases WHERE checkbox = 1")
-    fun readCheked(): LiveData<List<Purchases>>
-
 
     @Query("SELECT * FROM my_purchases ORDER BY id ASC")
     fun readAllData(): LiveData<List<Purchases>>

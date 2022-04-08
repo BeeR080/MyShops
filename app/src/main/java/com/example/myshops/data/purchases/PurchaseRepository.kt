@@ -1,13 +1,13 @@
-package com.example.myshops.data
+package com.example.myshops.data.purchases
 
 
 
 import androidx.lifecycle.LiveData
+import com.example.myshops.data.Purchases
 
 class PurchaseRepository(private val purchasesDao: PurchasesDao) {
 
     val readAllData: LiveData<List<Purchases>> = purchasesDao.readAllData()
-    val readCheked: LiveData<List<Purchases>> = purchasesDao.readCheked()
 
    suspend fun addPurchases(purchases: Purchases){
         purchasesDao.addPurchases(purchases)

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".view.fragments.JointShopsDialogFragment">
+    tools:context=".view.fragments.jointpurchases.JointShopsAddFragment">
 
     <LinearLayout
         android:id="@+id/dialog_linearLayout"

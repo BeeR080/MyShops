@@ -1,9 +1,10 @@
-package com.example.myshops.data
+package com.example.myshops.data.purchases
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.myshops.data.Purchases
 
 @Database(entities = [Purchases::class], version = 1, exportSchema = false )
 abstract class PurchasesDatabase: RoomDatabase() {
@@ -14,7 +15,7 @@ abstract class PurchasesDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: PurchasesDatabase? = null
 
-        fun getDatabase(context: Context): PurchasesDatabase{
+        fun getDatabase(context: Context): PurchasesDatabase {
             val tempInstance = INSTANCE
             if(tempInstance != null){
                 return tempInstance

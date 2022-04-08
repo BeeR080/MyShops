@@ -1,22 +1,21 @@
-package com.example.myshops.data
+package com.example.myshops.data.purchases
 
 import android.app.Application
-import android.widget.CheckBox
 import androidx.lifecycle.*
+import com.example.myshops.data.Purchases
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class PurchaseViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllData: LiveData<List<Purchases>>
-    val readCheked: LiveData<List<Purchases>>
     private val repository: PurchaseRepository
 
     init{
         val purchasesDao = PurchasesDatabase.getDatabase(application).purchasesDao()
         repository = PurchaseRepository(purchasesDao)
         readAllData = repository.readAllData
-        readCheked = repository.readCheked
+
     }
         //Добавить покупку
     fun addPurchases(purchase: Purchases){
