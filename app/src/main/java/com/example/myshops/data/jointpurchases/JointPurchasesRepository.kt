@@ -1,11 +1,11 @@
 package com.example.myshops.data.jointpurchases
 import androidx.lifecycle.LiveData
+import kotlinx.coroutines.delay
 
 
 class JointPurchasesRepository( private val fireBase: ApiFireBase) {
 
-
-    val readAllData: LiveData<List<JointPurchases>> = fireBase.getDataFromFB()
+    val readAllData: LiveData<ArrayList<JointPurchases>> = fireBase.getDataFromFB()
 
 
   suspend  fun addPurchases(purchases: JointPurchases){
@@ -14,6 +14,7 @@ class JointPurchasesRepository( private val fireBase: ApiFireBase) {
 
    suspend fun editPurchases(purchases: JointPurchases){
        fireBase.editDataFromFB(purchases)
+
     }
 
    suspend fun deletePurchases(purchases: JointPurchases){

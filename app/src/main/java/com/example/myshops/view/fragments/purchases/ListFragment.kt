@@ -27,15 +27,6 @@ class ListFragment : Fragment() {
     ): View? {
 
         binding = FragmentListBinding.inflate(inflater)
-        binding.bottomNavMenu.selectedItemId = R.id.MyShops
-       binding.bottomNavMenu.setOnNavigationItemSelectedListener {
-           when(it.itemId){
-               R.id.JointShops ->findNavController()
-                   .navigate(R.id.action_listFragment_to_jointShopsFragment)
-           }
-           true
-       }
-
 
         // RecyclerView
         val adapter = ListOfPurchasesAdapter()
@@ -87,8 +78,23 @@ class ListFragment : Fragment() {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
         setHasOptionsMenu(true)
+        //Нижний бар переход на Совместные покупки
+        binding.bottomNavMenu.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.JointShops ->findNavController()
+                    .navigate(R.id.action_listFragment_to_jointShopsFragment)
+            }
+            true
+        }
         return binding.root
     }
+
+    //Для отображения нижней иконки
+    override fun onStart() {
+        binding.bottomNavMenu.selectedItemId = R.id.MyShops
+        super.onStart()
+    }
+
 
     // Верхний бар
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

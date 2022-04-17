@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.room.Database
+import com.example.myshops.Adapters.ListOfJoinPurchasesAdapter
 import com.example.myshops.R
 import com.example.myshops.data.Purchases
 import com.example.myshops.data.jointpurchases.ApiFireBase
@@ -20,6 +21,9 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_joint_shops_edit.*
 import kotlinx.android.synthetic.main.fragment_update.*
+import kotlinx.android.synthetic.main.jointpurchases_list.*
+import kotlinx.coroutines.delay
+import kotlin.concurrent.thread
 
 
 class JointShopsEditFragment : Fragment() {
@@ -27,6 +31,7 @@ class JointShopsEditFragment : Fragment() {
     private lateinit var binding: FragmentJointShopsEditBinding
     private lateinit var jPurchasesViewModel: JointPurchasesViewModel
     private val args by navArgs<JointShopsEditFragmentArgs>()
+    val adapter = ListOfJoinPurchasesAdapter()
 
 
 
@@ -36,11 +41,11 @@ class JointShopsEditFragment : Fragment() {
     ): View? {
         binding = FragmentJointShopsEditBinding.inflate(inflater)
         jPurchasesViewModel = ViewModelProvider(this).get(JointPurchasesViewModel::class.java)
-
         fbEditData()
 
-        setHasOptionsMenu(true)
 
+
+        setHasOptionsMenu(true)
 
         //Кнопка "+"
         binding.dialogEditPlusbtn.setOnClickListener(){
@@ -63,9 +68,6 @@ class JointShopsEditFragment : Fragment() {
 
         return binding.root
 
-
-
-
     }
     // Верхний бар
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -85,7 +87,8 @@ class JointShopsEditFragment : Fragment() {
     private fun deletePurchases() {
         val purchase = args.currentPurchases
         jPurchasesViewModel.deleteDataOnFB(purchase)
-        findNavController().popBackStack()
+        Toast.makeText(requireContext(), "Данные удалены", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_jointShopsEditFragment_to_jointShopsFragment)
     }
 
     private fun inputChek(name: String): Boolean{
@@ -96,14 +99,19 @@ class JointShopsEditFragment : Fragment() {
         val desc = dialog_edit_adddesc.text.toString()
         val count = dialog_edit_addcount.text.toString().toInt()
         if(inputChek(name)){
+
             //Удаляем старую запись
             jPurchasesViewModel.deleteDataOnFB(args.currentPurchases)
-            val editPurchase = JointPurchases(name,desc,count,false)
 
             //Добавляем новую
+            val editPurchase = JointPurchases(name,desc,count,false)
             jPurchasesViewModel.editDataOnFB(editPurchase)
             Toast.makeText(requireContext(), "Данные изменены", Toast.LENGTH_SHORT).show()
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_jointShopsEditFragment_to_jointShopsFragment)
+
+
+
+
         }else{
             Toast.makeText(requireContext(), "Поле Имя не должно быть пустым", Toast.LENGTH_SHORT).show()
         }

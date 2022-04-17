@@ -19,6 +19,7 @@ class JointShopsFragment() : Fragment() {
    lateinit var jointPurchasesViewModel: JointPurchasesViewModel
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,13 +27,20 @@ class JointShopsFragment() : Fragment() {
     ): View? {
         binding = FragmentJointShopsBinding.inflate(inflater)
 
-
-
         // RecyclerView
         val adapter = ListOfJoinPurchasesAdapter()
         val recyclerView = binding.recylcerJointshops
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+
+
+        // ViewModel
+        jointPurchasesViewModel = ViewModelProvider(this).get(JointPurchasesViewModel::class.java)
+        jointPurchasesViewModel.readAllData.observe(viewLifecycleOwner, Observer {purchases ->
+            adapter.setData(purchases)
+
+        })
+
 
         // Удаление по свайпу
         val callback = object : ItemTouchHelper.SimpleCallback(0,
@@ -46,27 +54,19 @@ class JointShopsFragment() : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val item = adapter.purchases[viewHolder.adapterPosition]
+                val item = adapter.purchasesList[viewHolder.adapterPosition]
                 jointPurchasesViewModel.deleteDataOnFB(item)
+
             }
         }
         val itemTouchHelper = ItemTouchHelper(callback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
 
-        //ViewModel
-        jointPurchasesViewModel = ViewModelProvider(this).get(JointPurchasesViewModel::class.java)
-        jointPurchasesViewModel.readAllData.observe(viewLifecycleOwner, Observer {purchases ->
-            adapter.setData(purchases)
-
-        })
-
-
         //Нижний бар
-        binding.bottomNavMenuJointshops.selectedItemId = R.id.JointShops
         binding.bottomNavMenuJointshops.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.MyShops ->findNavController().popBackStack()
+                R.id.MyShops ->findNavController().navigate(R.id.action_jointShopsFragment_to_listFragment)
 
             }
             true
@@ -77,9 +77,17 @@ binding.button2.setOnClickListener {
     findNavController().navigate(R.id.action_jointShopsFragment_to_jointShopsDialogFragment)
    // jointPurchasesViewModel.addDataToDB()
 }
-
         return binding.root
 
+    }
+
+
+
+//Для отображения нижней иконки
+    override fun onStart() {
+
+        binding.bottomNavMenuJointshops.selectedItemId = R.id.JointShops
+        super.onStart()
     }
 
 

@@ -9,13 +9,14 @@ import kotlinx.coroutines.launch
 
 
 class JointPurchasesViewModel(application: Application) : AndroidViewModel(application) {
-    val readAllData: LiveData<List<JointPurchases>>
-    private val repository: JointPurchasesRepository
 
+    val readAllData: LiveData<ArrayList<JointPurchases>>
+    private val repository: JointPurchasesRepository
+    val jointPurchases = ApiFireBase()
 
 
 init{
-    val jointPurchases = ApiFireBase()
+
     repository = JointPurchasesRepository(jointPurchases)
     readAllData = repository.readAllData
 }
@@ -26,7 +27,7 @@ init{
     repository.addPurchases(purchases)
 }
     }
-    fun editDataOnFB(purchases: JointPurchases){
+   fun editDataOnFB(purchases: JointPurchases){
         viewModelScope.launch(Dispatchers.IO){
             repository.editPurchases(purchases)
         }
@@ -41,3 +42,5 @@ init{
 
 
 }
+
+

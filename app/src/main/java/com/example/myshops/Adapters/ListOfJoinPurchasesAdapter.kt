@@ -1,5 +1,6 @@
 package com.example.myshops.Adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.jointpurchases_list.view.*
 
 class ListOfJoinPurchasesAdapter: RecyclerView.Adapter<ListOfJoinPurchasesAdapter.JointListViewHolder>() {
 
-    var purchases = emptyList<JointPurchases>()
+    var purchasesList = ArrayList<JointPurchases>()
 
     class JointListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
@@ -25,13 +26,11 @@ class ListOfJoinPurchasesAdapter: RecyclerView.Adapter<ListOfJoinPurchasesAdapte
             .inflate(R.layout.jointpurchases_list,
                 parent,
                 false)
-
         return JointListViewHolder(view)
+
     }
-
-
     override fun onBindViewHolder(holder: JointListViewHolder, position: Int) {
-        val currentItem = purchases[position]
+        val currentItem = purchasesList[position]
         holder.itemView.tv_jointshops_name.text = currentItem.name
         holder.itemView.tv_jointshops_description.text = currentItem.desc
         holder.itemView.tv_jointshops_count.text = "X:"+ currentItem.count.toString()
@@ -46,22 +45,20 @@ class ListOfJoinPurchasesAdapter: RecyclerView.Adapter<ListOfJoinPurchasesAdapte
         }
     }
 
-
-
-    override fun getItemViewType(position: Int): Int {
-        purchases[position]
-        return super.getItemViewType(position)
-    }
-
     override fun getItemCount(): Int {
-       return purchases.size
+       return purchasesList.size
 
     }
 
-    fun setData(purchases: List<JointPurchases>){
-        this.purchases = purchases
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(purchases: ArrayList<JointPurchases>){
+        this.purchasesList = purchases
         notifyDataSetChanged()
     }
+
+
+
+
 
 
 
