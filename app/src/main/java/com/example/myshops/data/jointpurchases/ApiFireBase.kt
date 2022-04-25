@@ -10,13 +10,15 @@ import com.google.firebase.ktx.Firebase
 
   class ApiFireBase {
 
-          val dataBase = Firebase.database
+
+      val dataBase = Firebase.database
           val dbRef = dataBase.getReference("purchases")
           var purchasesList = ArrayList<JointPurchases>()
           private var _purchasesList: MutableLiveData<ArrayList<JointPurchases>> = MutableLiveData()
 
 
-     suspend fun setDataToFB(purchases: JointPurchases){
+
+      fun setDataToFB(purchases: JointPurchases){
         dbRef.child(purchases.name).setValue(purchases)
     }
 
@@ -38,16 +40,12 @@ import com.google.firebase.ktx.Firebase
         return _purchasesList
     }
 
-    suspend fun deleteDataFromFB(purchases: JointPurchases){
+     fun deleteDataFromFB(purchases: JointPurchases){
          dbRef.addListenerForSingleValueEvent(object  : ValueEventListener{
              override fun onDataChange(snapshot: DataSnapshot) {
                  for(datasnapshot: DataSnapshot in snapshot.children){
                      dbRef.child(purchases.name).removeValue()
                      purchasesList.clear()
-
-
-
-
 
                  }
              }
@@ -57,7 +55,7 @@ import com.google.firebase.ktx.Firebase
          })
      }
 
-    suspend fun editDataFromFB(purchases: JointPurchases){
+     fun editDataFromFB(purchases: JointPurchases){
          dbRef.addListenerForSingleValueEvent(object : ValueEventListener{
              override fun onDataChange(snapshot: DataSnapshot) {
                  for(datasnapshot: DataSnapshot in snapshot.children){

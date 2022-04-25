@@ -26,6 +26,7 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         binding = FragmentListBinding.inflate(inflater)
 
         // RecyclerView
@@ -77,7 +78,10 @@ class ListFragment : Fragment() {
         binding.addbutton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
+
+
         setHasOptionsMenu(true)
+
         //Нижний бар переход на Совместные покупки
         binding.bottomNavMenu.setOnNavigationItemSelectedListener {
             when(it.itemId){
@@ -89,37 +93,14 @@ class ListFragment : Fragment() {
         return binding.root
     }
 
+
+
+
     //Для отображения нижней иконки
     override fun onStart() {
         binding.bottomNavMenu.selectedItemId = R.id.MyShops
         super.onStart()
-    }
 
-
-    // Верхний бар
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.actionbar_menu_list, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-    // Верхний бар, нажатие на эелменты
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.delete_ic -> deleteAllUsers()
-
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun deleteAllUsers(){
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Удалить все покупки?")
-        builder.setMessage("Вы уверены, что хотите удалить все покупки?")
-        builder.setPositiveButton("Да"){ _, _ ->
-            mPurchasesViewModel.deleteAllPurchases()
-        }
-        builder.setNegativeButton("Нет") { _, _ ->
-        }
-        builder.create().show()
     }
 
 

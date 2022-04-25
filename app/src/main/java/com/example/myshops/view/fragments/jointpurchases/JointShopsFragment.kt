@@ -1,6 +1,7 @@
 package com.example.myshops.view.fragments.jointpurchases
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -33,11 +34,12 @@ class JointShopsFragment() : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
-
         // ViewModel
-        jointPurchasesViewModel = ViewModelProvider(this).get(JointPurchasesViewModel::class.java)
+        jointPurchasesViewModel = ViewModelProvider(this)
+            .get(JointPurchasesViewModel::class.java)
         jointPurchasesViewModel.readAllData.observe(viewLifecycleOwner, Observer {purchases ->
             adapter.setData(purchases)
+            binding.progressBar.visibility = View.GONE
 
         })
 
@@ -66,38 +68,23 @@ class JointShopsFragment() : Fragment() {
         //Нижний бар
         binding.bottomNavMenuJointshops.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.MyShops ->findNavController().navigate(R.id.action_jointShopsFragment_to_listFragment)
+                R.id.MyShops ->findNavController()
+                    .navigate(R.id.action_jointShopsFragment_to_listFragment)
 
             }
             true
         }
 
-
 binding.button2.setOnClickListener {
     findNavController().navigate(R.id.action_jointShopsFragment_to_jointShopsDialogFragment)
-   // jointPurchasesViewModel.addDataToDB()
 }
         return binding.root
-
     }
-
 
 
 //Для отображения нижней иконки
     override fun onStart() {
-
         binding.bottomNavMenuJointshops.selectedItemId = R.id.JointShops
         super.onStart()
     }
-
-
-
-
-
-
-
-
-
-
-
 }

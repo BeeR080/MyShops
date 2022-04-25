@@ -24,7 +24,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="0dp"
-        android:layout_height="628dp"
+        android:layout_height="match_parent"
         android:scrollingCache="false"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_menu"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +52,7 @@
         android:text="Total Cheked:"
         android:textColor="#F4511E"
         android:textSize="20dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

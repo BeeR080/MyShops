@@ -12,35 +12,35 @@ class JointPurchasesViewModel(application: Application) : AndroidViewModel(appli
 
     val readAllData: LiveData<ArrayList<JointPurchases>>
     private val repository: JointPurchasesRepository
-    val jointPurchases = ApiFireBase()
+
 
 
 init{
-
+    val jointPurchases = ApiFireBase()
     repository = JointPurchasesRepository(jointPurchases)
     readAllData = repository.readAllData
 }
 
 
-    fun addDataToDB(purchases: JointPurchases){
+     fun addDataToDB(purchases: JointPurchases){
     viewModelScope.launch(Dispatchers.IO) {
     repository.addPurchases(purchases)
 }
     }
-   fun editDataOnFB(purchases: JointPurchases){
+    fun editDataOnFB(purchases: JointPurchases){
         viewModelScope.launch(Dispatchers.IO){
             repository.editPurchases(purchases)
         }
     }
 
-    fun deleteDataOnFB(purchases: JointPurchases){
-        viewModelScope.launch(Dispatchers.IO){
+     fun deleteDataOnFB(purchases: JointPurchases) {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.deletePurchases(purchases)
+
         }
+
+
     }
-
-
-
 }
 
 
