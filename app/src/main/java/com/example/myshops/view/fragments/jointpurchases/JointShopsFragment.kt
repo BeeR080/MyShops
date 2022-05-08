@@ -1,4 +1,5 @@
 package com.example.myshops.view.fragments.jointpurchases
+import android.app.Notification
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.ActionBar
@@ -26,6 +27,7 @@ class JointShopsFragment() : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentJointShopsBinding.inflate(inflater)
 
         // RecyclerView
@@ -87,4 +89,5 @@ binding.button2.setOnClickListener {
         binding.bottomNavMenuJointshops.selectedItemId = R.id.JointShops
         super.onStart()
     }
+
 }

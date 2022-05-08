@@ -1,10 +1,18 @@
 package com.example.myshops.view.fragments.jointpurchases
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.content.Context.NOTIFICATION_SERVICE
 import android.os.Bundle
 import android.view.*
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.content.ContextCompat.getSystemServiceName
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.myshops.R
+import com.example.myshops.Services.JointPurchaseService
 import com.example.myshops.data.jointpurchases.JointPurchases
 import com.example.myshops.data.jointpurchases.JointPurchasesViewModel
 import com.example.myshops.databinding.FragmentJointShopsDialogBinding
@@ -74,8 +82,36 @@ jointPurchasesViewModel = ViewModelProvider(this).get(JointPurchasesViewModel::c
         //Добавляем данные в FB
         jointPurchasesViewModel.addDataToDB(purchases)
         findNavController().navigate(R.id.action_jointShopsDialogFragment_to_jointShopsFragment)
+        showNotification(purchases.name)
     }
 
+    fun showNotification(purcshase:String){
+        val notificationManager = activity?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        val notificationChannel = NotificationChannel(
+            CHANNEL_ID,
+            CHANNEL_NAME,
+            NotificationManager.IMPORTANCE_DEFAULT)
+        notificationManager.createNotificationChannel(notificationChannel)
+
+
+        val notification = Notification.Builder(requireContext(), CHANNEL_ID)
+            .setContentTitle("Покупка")
+            .setContentText("Доавлено: $purcshase")
+            .setSmallIcon(R.drawable.purchasessicons1_foreground)
+            .build()
+
+
+        notificationManager.notify(1, notification)
+    }
+
+
+
+    companion object {
+
+        private const val CHANNEL_ID = "channel_id"
+        private const val CHANNEL_NAME = "channel_name"
+
+    }
 
     }
 
