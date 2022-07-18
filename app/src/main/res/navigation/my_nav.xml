@@ -16,9 +16,6 @@
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
-        <action
-            android:id="@+id/action_listFragment_to_jointShopsFragment"
-            app:destination="@id/jointShopsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -40,42 +37,5 @@
         <argument
             android:name="currentPurchases"
             app:argType="com.example.myshops.data.Purchases" />
-    </fragment>
-    <fragment
-        android:id="@+id/jointShopsFragment"
-        android:name="com.example.myshops.view.fragments.jointpurchases.JointShopsFragment"
-        android:label="Совместные покупки"
-        tools:layout="@layout/fragment_joint_shops">
-        <action
-            android:id="@+id/action_jointShopsFragment_to_jointShopsDialogFragment"
-            app:destination="@id/jointShopsDialogFragment" />
-        <action
-            android:id="@+id/action_jointShopsFragment_to_jointShopsEditFragment"
-            app:destination="@id/jointShopsEditFragment" />
-        <action
-            android:id="@+id/action_jointShopsFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/jointShopsDialogFragment"
-        android:name="com.example.myshops.view.fragments.jointpurchases.JointShopsAddFragment"
-        android:label="Добавить совместную покупку"
-        tools:layout="@layout/fragment_joint_shops_dialog">
-        <action
-            android:id="@+id/action_jointShopsDialogFragment_to_jointShopsFragment"
-            app:destination="@id/jointShopsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/jointShopsEditFragment"
-        android:name="com.example.myshops.view.fragments.jointpurchases.JointShopsEditFragment"
-        android:label="Редактирование совместной покупки">
-        <action
-            android:id="@+id/action_jointShopsEditFragment_to_jointShopsFragment"
-            app:destination="@id/jointShopsFragment"
-            app:popUpTo="@id/jointShopsFragment"
-            app:popUpToInclusive="true" />
-        <argument
-            android:name="currentPurchases"
-            app:argType="com.example.myshops.data.jointpurchases.JointPurchases" />
     </fragment>
 </navigation>

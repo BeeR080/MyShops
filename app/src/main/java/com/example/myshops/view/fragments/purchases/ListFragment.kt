@@ -1,6 +1,6 @@
 package com.example.myshops.view.fragments.purchases
 
-import android.app.AlertDialog
+
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -82,11 +82,11 @@ class ListFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-        //Нижний бар переход на Совместные покупки
+        //Нижний бар переход на Историю
         binding.bottomNavMenu.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.JointShops ->findNavController()
-                    .navigate(R.id.action_listFragment_to_jointShopsFragment)
+
             }
             true
         }
